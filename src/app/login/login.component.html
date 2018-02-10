@@ -1,0 +1,59 @@
+<ng4-loading-spinner> </ng4-loading-spinner>
+<div class="container py-5">
+  <div class="row">
+    <div class="col-md-12">
+      <h2 class="text-center  mb-4">Portal Login</h2>
+      <div class="row">
+        <div class="col-md-6 mx-auto">
+          <span class="anchor" id="formLogin"></span>
+
+          <!-- form card login -->
+          <div class="card rounded-0">
+            <div class="card-header">
+              <h3 class="mb-0">Login</h3>
+            </div>
+            <div class="card-body p-4">
+              <form [formGroup]="form" (ngSubmit)="onSubmit()" class="form" role="form" autocomplete="off" id="formLogin">
+
+                <div class="form-group" [ngClass]="displayFieldCss('email')">
+                  <label for="email">Username</label>
+                  <input type="email" formControlName="email" placeholder="Enter email" class="form-control form-control-lg rounded-0" name="email"
+                    id="email" required>
+                  <app-error-display [displayError]="isFieldValid('email')" errorMsg="Please enter a valid email">
+                  </app-error-display>
+                </div>
+                <div class="form-group" [ngClass]="displayFieldCss('password')">
+                  <label for="password">Password</label>
+                  <input type="password" placeholder="Enter password" formControlName="password" class="form-control form-control-lg rounded-0"
+                    id="password" name="password" required autocomplete="new-password">
+                  <app-error-display [displayError]="isFieldValid('password')" errorMsg="Please enter the password with min-length 6">
+                  </app-error-display>
+                </div>
+                <div class="form-group">
+                  <label class="custom-control custom-checkbox">
+                    <input type="checkbox" class="custom-control-input">
+                    <span class="custom-control-indicator"></span>
+                    <span class="custom-control-description small">Remember me on this computer</span>
+                  </label>
+                </div>
+                <div class="form-group">
+                  <button type="submit" class="btn btn-success btn-lg float-right">Login</button>
+                </div>
+              </form>
+            </div>
+            <!--/card-block-->
+          </div>
+          <!-- /form card login -->
+
+        </div>
+
+
+      </div>
+      <!--/row-->
+
+    </div>
+    <!--/col-->
+  </div>
+  <!--/row-->
+</div>
+<!--/container-->
