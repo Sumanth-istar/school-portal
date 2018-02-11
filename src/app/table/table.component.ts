@@ -1,6 +1,8 @@
 import { Component, ViewChild, OnInit } from '@angular/core';
 import { DataTable, DataTableTranslations, DataTableResource } from 'angular5-data-table';
 import { data } from './data-table-data';
+import { cars } from './data-table-data';
+
 
 @Component({
   selector: 'app-table',
@@ -16,8 +18,18 @@ export class TableComponent implements OnInit {
   @ViewChild(DataTable) dataTable;
 
 
+  carResource = new DataTableResource(cars);
+  cars = [];
+  carCount = 0;
+
+  @ViewChild(DataTable) carsTable: DataTable;
+
+
   constructor() {
     this.dataResource.count().then(count => this.dataCount = count);
+    this.rowColors = this.rowColors.bind(this);
+
+    this.carResource.count().then(count => this.carCount = count);
   }
 
   reloadData(params) {
@@ -38,6 +50,22 @@ export class TableComponent implements OnInit {
   };
 
   ngOnInit() {
+  }
+
+
+  reloadCars(params) {
+    this.carResource.query(params).then(cars => this.cars = cars);
+  }
+
+  // custom features:
+  carClicked(car) {
+    alert(car.model);
+  }
+
+  yearLimit = 1999;
+
+  rowColors(car) {
+    if (car.year >= this.yearLimit) return 'rgb(255, 255, 197)';
   }
 
 }
