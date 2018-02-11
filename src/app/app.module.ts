@@ -16,7 +16,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { Calendar } from './calendar/calendar.component';
 import { FullCalendarModule } from 'ng-fullcalendar';
-
+import { DataTableModule } from 'angular5-data-table';
+import { TableComponent } from './table/table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -24,7 +25,8 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     LoginComponent,
     ErrorDisplayComponent,
     NavbarComponent,
-    Calendar
+    Calendar,
+    TableComponent
   ],
   imports: [
     BrowserModule,
@@ -34,7 +36,8 @@ import { FullCalendarModule } from 'ng-fullcalendar';
     ReactiveFormsModule,
     HttpClientModule,
     NgbModule.forRoot(),
-    FullCalendarModule
+    FullCalendarModule,
+    DataTableModule
   ],
   providers: [AuthGuardService, AuthService, AppConfiguration],
   bootstrap: [AppComponent]
