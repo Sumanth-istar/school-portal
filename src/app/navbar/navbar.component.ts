@@ -14,6 +14,35 @@ export class NavbarComponent implements OnInit {
   constructor(private auth: AuthService, private router: Router, private route: ActivatedRoute) { }
 
 
+  getNavBarItems(type) {
+    let navBarItems = []
+    switch (type) {
+      case 'STUDENT':
+        navBarItems = ['HOME', 'ATTENDANCE', 'SCORE']
+        return navBarItems;
+      case 'ACCOUNTANT':
+        navBarItems = ['HOME', 'PLAYMENT']
+        return navBarItems;
+      case 'PRINCIPAL':
+
+        return;
+      case 'LIBRARIAN':
+
+        return navBarItems;
+      case 'TRACHER':
+        navBarItems = ['HOME', 'UPDATE CLASS ATTENDANCE', 'UPDATE CLASS SCORE']
+        return navBarItems;
+      case 'GUARDIAN':
+        navBarItems = ['HOME', 'ATTENDANCE', 'SCORE', 'TRACHER FEEDBACK']
+        return navBarItems;
+      default:
+        return navBarItems;
+
+
+    }
+
+  }
+
   ngOnInit() {
   }
 

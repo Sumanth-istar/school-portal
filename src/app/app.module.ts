@@ -13,6 +13,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { ErrorDisplayComponent } from './error-display/error-display.component';
 import { NavbarComponent } from './navbar/navbar.component';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { Calendar } from './calendar/calendar.component';
+import { FullCalendarModule } from 'ng-fullcalendar';
 
 @NgModule({
   declarations: [
@@ -20,7 +23,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     DashboardComponent,
     LoginComponent,
     ErrorDisplayComponent,
-    NavbarComponent
+    NavbarComponent,
+    Calendar
   ],
   imports: [
     BrowserModule,
@@ -29,7 +33,8 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
     FormsModule,
     ReactiveFormsModule,
     HttpClientModule,
-    NgbModule.forRoot()
+    NgbModule.forRoot(),
+    FullCalendarModule
   ],
   providers: [AuthGuardService, AuthService, AppConfiguration],
   bootstrap: [AppComponent]
