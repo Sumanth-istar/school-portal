@@ -28,17 +28,6 @@ export class Calendar implements OnInit {
         events: data
       };
     });
-
-    // this.calendarOptions = {
-    //   editable: true,
-    //   eventLimit: false,
-    //   header: {
-    //     left: 'prev,next today',
-    //     center: 'title',
-    //     right: 'month,agendaWeek,agendaDay,listMonth'
-    //   },
-    //   events: this.getEvents()
-    // };
   }
 
   clickButton(model: any) {
@@ -75,7 +64,10 @@ export class Calendar implements OnInit {
   }
   public getEvents(): Observable<any> {
     const dateObj = new Date();
-    const yearMonth = dateObj.getUTCFullYear() + '-' + (dateObj.getUTCMonth() + 1);
+    console.log(dateObj);
+    const yearMonth = dateObj.getUTCFullYear() + '-' + ((dateObj.getUTCMonth() + 1) <= 9 ? '0' + (dateObj.getUTCMonth() + 1) : (dateObj.getUTCMonth() + 1));
+
+    console.log(yearMonth);
     let data: any = [{
       title: 'All Day Event',
       start: yearMonth + '-01'
@@ -97,8 +89,7 @@ export class Calendar implements OnInit {
     },
     {
       title: 'Conference',
-      start: yearMonth + '-11',
-      end: yearMonth + '-13'
+      start: yearMonth + '-12'
     },
     {
       title: 'Meeting',
@@ -128,7 +119,7 @@ export class Calendar implements OnInit {
     {
       title: 'Click for Google',
       url: 'http://google.com/',
-      start: yearMonth + '-28'
+      start: '2018-02-19T20:00:00'
     }];
     console.log(data)
     return Observable.of(data);
