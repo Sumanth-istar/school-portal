@@ -63,7 +63,10 @@ export class LoginComponent implements OnInit {
 
     } else {
       console.log('form invalid');
-      alert('please fill the required fields');
+      Object.keys(this.form.controls).forEach(field => { // {1}
+        const control = this.form.get(field);            // {2}
+        control.markAsTouched({ onlySelf: true });       // {3}
+      });
 
     }
   }
