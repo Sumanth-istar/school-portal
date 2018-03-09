@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { AuthService } from '../services/authService/auth.service';
+import { AuthenticateService } from '../services/authService/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 
 @Component({
@@ -11,7 +11,7 @@ export class NavbarComponent implements OnInit {
 
   @Input() first_name: String;
   @Input() avatar: String;
-  constructor(private auth: AuthService, private router: Router, private route: ActivatedRoute) { }
+  constructor(private auth: AuthenticateService, private router: Router, private route: ActivatedRoute) { }
 
 
   getNavBarItems(type) {

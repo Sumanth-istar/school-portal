@@ -1,0 +1,17 @@
+create .pem,.crt,.p12 files using CreateCertGUI.exe
+
+install openssl 
+
+set env varible
+OPENSSL_CONF     C:\Program Files (x86)\GnuWin32\share\openssl.cnf
+
+
+C:\Program Files (x86)\GnuWin32\bin
+
+
+
+pkcs12 -in cert-key-20180309-141822.p12 -out sumanth.dev.key
+
+ 
+
+rsa -in sumanth.dev.key -out newsumanth.dev.key
