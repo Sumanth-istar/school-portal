@@ -15,3 +15,6 @@ pkcs12 -in cert-key-20180309-141822.p12 -out sumanth.dev.key
  
 
 rsa -in sumanth.dev.key -out newsumanth.dev.key
+
+
+ng serve --port 443 --host sumanthdev.in --ssl-key "C:\Users\Sumanth-istar\school-portal\src\app\sumanth.dev.key"  --ssl 1 --ssl-cert "C:\Users\Sumanth-istar\school-portal\src\app\cert-20180309-160320.crt"

@@ -1,5 +1,20 @@
 <app-navbar [first_name]="complex_object.first_name" [avatar]="complex_object.avatar"></app-navbar>
-<div role="main" class="container">
+
+<div class="container">
+
+    <div class="starter-template">
+        <div class="input-group">
+            <input type="text" [(ngModel)]="simpleText" class="form-control" placeholder="Search for...">
+            <span class="input-group-btn">
+                <button (click)="onclickToster(simpleText)" class="btn btn-secondary" type="button">Go!</button>
+            </span>
+        </div>
+
+    </div>
+
+</div>
+
+<div class="container">
 
     <div class="starter-template">
         <app-calendar></app-calendar>

@@ -20,7 +20,17 @@ import { DataTableModule } from 'angular5-data-table';
 import { TableComponent } from './table/table.component';
 import { SocialLoginModule, AuthServiceConfig } from "angularx-social-login";
 import { GoogleLoginProvider } from "angularx-social-login";
-
+import { AngularFireModule } from 'angularfire2';
+import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireStorageModule } from 'angularfire2/storage';
+import { AngularFireAuthModule } from 'angularfire2/auth';
+import { environment } from '../environments/environment';
+import {
+  ToastrModule,
+  ToastNoAnimation,
+  ToastNoAnimationModule,
+} from 'ngx-toastr';
+import { AngularFireDatabaseModule } from 'angularfire2/database';
 let config = new AuthServiceConfig([
   {
     id: GoogleLoginProvider.PROVIDER_ID,
@@ -45,6 +55,7 @@ export function provideConfig() {
   ],
   imports: [
     BrowserModule,
+    BrowserAnimationsModule,
     AppRoutingModule,
     Ng4LoadingSpinnerModule.forRoot(),
     FormsModule,
@@ -53,7 +64,19 @@ export function provideConfig() {
     NgbModule.forRoot(),
     FullCalendarModule,
     DataTableModule,
-    SocialLoginModule.initialize(config)
+    SocialLoginModule.initialize(config),
+    AngularFireModule.initializeApp(environment.firebase),
+    AngularFirestoreModule, // imports firebase/firestore, only needed for database features
+    AngularFireAuthModule, // imports firebase/auth, only needed for auth features,
+    AngularFireStorageModule, // imports firebase/storage only needed for storage features
+    AngularFireDatabaseModule,
+    ToastNoAnimationModule,
+    ToastrModule.forRoot({
+      timeOut: 1000,
+      positionClass: 'toast-top-right',
+      preventDuplicates: true,
+
+    })
   ],
   providers: [AuthGuardService,
     AuthenticateService,
